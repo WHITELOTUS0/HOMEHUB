@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <!-- Bootstrap js bundle -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
+
+      <!-- local css -->
+      <link rel="stylesheet" href="../style.css">
+
+    </head>
+<body>
+   
+
+    <div class="admin-login">
+        <h3>CREATE A NEW ACCOUNT</h3>
+        <form class="form form-center" action="/register" method="post">
+            <div class="form-item">
+                <label for="username">Full Name</label>
+                <input type="text" name="username" id="username" placeholder="Please enter correct name">
+            </div>
+            <div class="form-item">
+                <label for="username">Email</label>
+                <input type="email" name="email" id="email" placeholder="Please enter correct email">
+            </div>
+            <div class="form-item">
+                <label for="phone">Phone contact</label>
+                <input type="tel" name="phone" id="phone" placeholder="Please enter correct phone contact">
+            </div>
+
+            <div class="form-item">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Please your password!">
+            </div>
+
+            <button type="submit" name="submit_signup">Sign Up<i class="fas fa-sign-up-alt login-icon"></i></button>
+            <p>Have an account already?   <a href="login.html"><strong>Create account</strong></a></p>
+
+        </form>
+</body>
+</html>
+

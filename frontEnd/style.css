@@ -1,0 +1,90 @@
+/* css for the dashboard */
+.content-top{
+    position: fixed;
+    top: 0;
+    left: 20%;
+    width: 80%;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+}
+.content-top h4,
+.content-top p{
+    margin-top: 25px;
+    margin-right: 20px;
+}
+.content-top h4{
+    margin-left: 80px;
+}
+.dash-header{
+    text-decoration: blueviolet;
+    text-shadow:2px solid red;
+}
+.dash-content a:hover{
+    font-weight: bold;
+    background-color: blue;
+    transition: .4s;
+
+}
+
+/* upload form css goes in here on top of the bootstrap styling */
+.upload-form{
+    width: 50%;
+    margin: auto;
+    box-shadow:2px solid gray;
+    margin-top: 5em;
+}
+
+
+.upload-form input,
+.upload-form select{
+    height: 44px;
+}
+.upload-form textarea{
+    min-height: 150px;
+}
+
+/* login and signup form */
+.admin-login{
+    width: 50%;
+    margin: auto;
+}
+.admin-login h3{
+    margin-top: 100px;
+    color: black;
+    text-align: center;
+}
+.form-center{
+    position: fixed; /* Set the position property to fixed */
+    top: 50%; /* Set the top property to 50% */
+    left: 50%; /* Set the left property to 50% */
+    transform: translate(-50%, -50%); /* Use the transform property to center the div */
+    background-color: rgb(248, 250, 251); /* Add some styling */
+    padding: 20px;
+    width: 40%;
+    
+}
+.form .form-item{
+    display: block;
+    margin-top: 20px;
+}
+.form .form-item input{
+    width: 100%;
+    height: 44px;
+    border-radius: 4px;
+    border-color: transparent;
+    margin-top: 10px;
+}
+.form button{
+    height: 44px;
+    border-radius: 4px;
+    background-color: blue;
+    border-color:transparent;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    margin-top: 20px;
+    text-transform: uppercase;
+    display: block;
+}

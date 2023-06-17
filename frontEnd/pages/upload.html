@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <!-- Bootstrap js bundle -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer></script>
+
+      <!-- local css -->
+      <link rel="stylesheet" href="../style.css">
+
+    </head>
+<body>
+    
+    <form action="#" method="post" enctype="multipart/form-data" class="upload-form p-5 bg-light">
+
+        <div class="mb-3">
+          <label for="property_name" class="form-label">Property/Organisation name</label>
+          <input type="text" class="form-control" id="property_name" name="property-name" required>
+        </div>
+
+        <div class="mb-3">
+        <label for="proprty_type_select" class="form-label">Property type</label>
+        <select id="property_type_select" name="property-type" class="form-select" required>
+            <option>Please select how you want to trade the property</option>
+            <option value="Sale">Sale</option>
+            <option value="Rent">Rent</option>
+            <option value="Lease">Lease</option>
+        </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="bedroom" class="form-label">Number of bedrooms</label>
+            <input type="number" class="form-control" id="bedroom" name="bedroom" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="bathroom" class="form-label">Number of bathrooms</label>
+            <input type="number" class="form-control" id="bathroom" name="bathroom" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="location" class="form-label">Property location</label>
+            <input type="text" class="form-control" id="location" name="location" required>
+        </div>
+
+        <div class="form-floating" style="margin-bottom: 15px;">
+            <textarea class="form-control" placeholder="Please describe briefly your property" id="description" name="description" required></textarea>
+            <label for="description">Please provide a brief description of your property</label>
+          </div>
+
+          <div class="mb-3">
+            <label for="price" class="form-label">Property cost/price</label>
+            <input type="number" class="form-control" id="price" name="price" required>
+        </div>
+        
+        <label for="imageFile" class="form-label">Select property image (all 2 images should be selected)</label>
+
+          <div class="mb-3 d-flex">
+            <input class="form-control form-control-sm w-50 me-3" accept=".jpg, .png, .jpeg" 
+            type="file" name="imageFile1" required>
+            <input class="form-control form-control-sm w-50" accept=".jpg, .png, .jpeg" 
+            type="file" name="imageFile2" required>
+          </div>
+
+        <button type="submit" class="btn btn-primary w-100 h-44">Submit</button>
+      </form>
+    
+</body>
+</html>
+
