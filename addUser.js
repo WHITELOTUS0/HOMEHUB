@@ -6,7 +6,7 @@ const path = require('path');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'manageProperty')));
+app.use(express.static(path.join(__dirname, 'frontEnd')));
 
 function checkEmailExists(email) {
     return new Promise((resolve, reject) => {
