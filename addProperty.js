@@ -1,3 +1,4 @@
+//addProperty.js
 const express = require('express');
 const db = require('./db');
 const bodyParser = require('body-parser');
