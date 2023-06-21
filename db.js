@@ -4,8 +4,8 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Bujumbura1#',
-  database: 'propertyproject',
+  password: '',
+  database: 'property_db',
 });
 
 connection.connect((err) => {
@@ -17,4 +17,3 @@ connection.connect((err) => {
 });
 
 module.exports = connection;
-//gygyyg

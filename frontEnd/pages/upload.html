@@ -15,16 +15,16 @@
     </head>
 <body>
     
-    <form action="#" method="post" enctype="multipart/form-data" class="upload-form p-5 bg-light">
+    <form action="/upload-property" method="post" enctype="multipart/form-data" class="upload-form p-5 bg-light">
 
         <div class="mb-3">
           <label for="property_name" class="form-label">Property/Organisation name</label>
-          <input type="text" class="form-control" id="property_name" name="property-name" required>
+          <input type="text" class="form-control" id="property_name" name="propertyName" required>
         </div>
 
         <div class="mb-3">
         <label for="proprty_type_select" class="form-label">Property type</label>
-        <select id="property_type_select" name="property-type" class="form-select" required>
+        <select id="property_type_select" name="propertyType" class="form-select" required>
             <option>Please select how you want to trade the property</option>
             <option value="Sale">Sale</option>
             <option value="Rent">Rent</option>
@@ -61,9 +61,9 @@
 
           <div class="mb-3 d-flex">
             <input class="form-control form-control-sm w-50 me-3" accept=".jpg, .png, .jpeg" 
-            type="file" name="imageFile1" required>
+            type="file" name="imageField1" required>
             <input class="form-control form-control-sm w-50" accept=".jpg, .png, .jpeg" 
-            type="file" name="imageFile2" required>
+            type="file" name="imageField2" required>
           </div>
 
         <button type="submit" class="btn btn-primary w-100 h-44">Submit</button>
