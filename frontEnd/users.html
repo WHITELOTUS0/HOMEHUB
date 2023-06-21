@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Website</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .container {
+        margin-top: 50px;
+      }
+
+      .table {
+        background-color: #fff;
+      }
+
+      .table thead th {
+        background-color: #007bff;
+        color: #fff;
+        border-color: #007bff;
+      }
+
+      .table tbody td {
+        background-color: #f8f9fa;
+      }
+    </style>
+    <!-- Other head elements here -->
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mb-4">User List</h1>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="bg-primary text-white">
+            <tr>
+              <th>Names</th>
+              <th>Email</th>
+              <th>Tel No</th>
+            </tr>
+          </thead>
+          <tbody id="userTableBody">
+            <!-- Table rows will be dynamically added here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Include the client-side JavaScript file -->
+    <script>
+      // Example client-side JavaScript file
+
+      // Function to retrieve users from the server and render them in an HTML table
+      function getUsersAndRenderTable() {
+        fetch("/users")
+          .then((response) => response.json())
+          .then((users) => {
+            if (Array.isArray(users) && users.length > 0) {
+              // Users array is not empty
+              renderUserTable(users);
+            } else {
+              // Users array is empty or not an array
+              console.log("No users found");
+            }
+          })
+          .catch((error) => {
+            console.error("Error retrieving users:", error);
+          });
+      }
+
+      // Function to render the users in an HTML table
+      function renderUserTable(users) {
+        const tableBody = document.getElementById("userTableBody");
+
+        // Clear any existing table rows
+        tableBody.innerHTML = "";
+
+        // Iterate over each user and create a table row
+        users.forEach((user) => {
+          const row = document.createElement("tr");
+
+          // Create table cells for each user property
+          const namesCell = document.createElement("td");
+          namesCell.textContent = user.Names;
+          row.appendChild(namesCell);
+
+          const emailCell = document.createElement("td");
+          emailCell.textContent = user.email;
+          row.appendChild(emailCell);
+
+          const telnoCell = document.createElement("td");
+          telnoCell.textContent = user.telno;
+          row.appendChild(telnoCell);
+
+          // Append the row to the table body
+          tableBody.appendChild(row);
+        });
+      }
+
+      // Call the getUsersAndRenderTable function when needed
+      getUsersAndRenderTable();
+    </script>
+  </body>
+</html>
