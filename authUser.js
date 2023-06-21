@@ -33,9 +33,10 @@ function authUser(req, res, next) {
 
       if (passwordMatch) {
         // Passwords match, authentication successful
-        const welcomeMessage = `Welcome ${user.Names}!`;
-        console.log(welcomeMessage);
-        res.send(welcomeMessage);
+        //const welcomeMessage = `Welcome ${user.Names}!`;
+        //console.log(welcomeMessage);
+        //res.send(welcomeMessage);
+        res.redirect("/index.html")
       } else {
         // Passwords don't match
         console.log('Incorrect password');
