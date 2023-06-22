@@ -1,93 +1,121 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Property List</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
+  <head>
+    <title>Property List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
 
-    .container {
-      margin-top: 50px;
-    }
+      .container {
+        margin-top: 50px;
+      }
 
-    .card {
-      margin-bottom: 20px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1 class="text-center mb-4">Property List</h1>
-    <div id="propertyList"></div>
-  </div>
+      .card {
+        margin-bottom: 20px;
+      }
 
-  <!-- Include the client-side JavaScript file -->
-  <script>
-   // script.js
-// script.js
-document.addEventListener('DOMContentLoaded', () => {
-    const propertyListDiv = document.getElementById('propertyList');
-  
-    fetch('/properties')
-      .then(response => response.json())
-      .then(properties => {
-        properties.forEach(property => {
-          const card = document.createElement('div');
-          card.classList.add('card');
-  
-          const cardBody = document.createElement('div');
-          cardBody.classList.add('card-body');
-  
-          const propertyName = document.createElement('h5');
-          propertyName.classList.add('card-title');
-          propertyName.textContent = property.propName;
-  
-          const propertyDetails = document.createElement('p');
-          propertyDetails.classList.add('card-text');
-          propertyDetails.innerHTML = `
-            <strong>Property Type:</strong> ${property.propType}<br>
-            <strong>Location:</strong> ${property.location}<br>
-            <strong>Description:</strong> ${property.DESCRIPTION}<br>
-            <strong>Bedrooms:</strong> ${property.bedrooms}<br>
-            <strong>Bathrooms:</strong> ${property.bathrooms}<br>
-            <strong>Cost:</strong> ${property.cost}<br>
-          `;
-  
-          const imageContainer = document.createElement('div');
-          imageContainer.classList.add('mb-3');
-  
-          const image1 = document.createElement('img');
-          image1.classList.add('img-thumbnail', 'mr-2');
-          image1.src = property.imagePath1.replace(/\\/g, '/');
-          image1.alt = 'Property Image 1';
-          console.log(property.imagePath1.replace(/\\/g, '/'));
-  
-          const image2 = document.createElement('img');
-          image2.classList.add('img-thumbnail');
-          image2.src = property.imagePath2.replace(/\\/g, '/');
-          image2.alt = 'Property Image 2';
-  
-          imageContainer.appendChild(image1);
-          imageContainer.appendChild(image2);
-  
-          cardBody.appendChild(propertyName);
-          cardBody.appendChild(propertyDetails);
-          cardBody.appendChild(imageContainer);
-  
-          card.appendChild(cardBody);
-  
-          propertyListDiv.appendChild(card);
-        });
-      })
-      .catch(error => {
-        console.error('Error retrieving properties:', error);
+      .property-image {
+        width: 50%;
+        height: 50%;
+        object-fit: cover;
+        transition: transform 0.3s;
+        cursor: pointer;
+      }
+
+      .property-image.clicked {
+        width: auto;
+        height: auto;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mb-4">Property List</h1>
+      <div id="propertyList"></div>
+    </div>
+
+    <!-- Include the client-side JavaScript file -->
+    <script>
+      // script.js
+      document.addEventListener("DOMContentLoaded", () => {
+        const propertyListDiv = document.getElementById("propertyList");
+
+        fetch("/properties")
+          .then((response) => response.json())
+          .then((properties) => {
+            properties.forEach((property) => {
+              const card = document.createElement("div");
+              card.classList.add("card");
+
+              const cardBody = document.createElement("div");
+              cardBody.classList.add("card-body");
+
+              const propertyName = document.createElement("h5");
+              propertyName.classList.add("card-title");
+              propertyName.textContent = property.propName;
+
+              const propertyDetails = document.createElement("p");
+              propertyDetails.classList.add("card-text");
+              propertyDetails.innerHTML = `
+              <strong>Property Type:</strong> ${property.propType}<br>
+              <strong>Location:</strong> ${property.location}<br>
+              <strong>Description:</strong> ${property.DESCRIPTION}<br>
+              <strong>Bedrooms:</strong> ${property.bedrooms}<br>
+              <strong>Bathrooms:</strong> ${property.bathrooms}<br>
+              <strong>Cost:</strong> ${property.cost}<br>
+            `;
+
+              const imageContainer = document.createElement("div");
+              imageContainer.classList.add(
+                "mb-3",
+                "d-flex",
+                "justify-content-between"
+              );
+
+              const image1 = document.createElement("img");
+              image1.classList.add("img-thumbnail", "property-image");
+              image1.src = property.imagePath1.replace(/\\/g, "/");
+              image1.alt = "Property Image 1";
+
+              const image2 = document.createElement("img");
+              image2.classList.add("img-thumbnail", "property-image");
+              image2.src = property.imagePath2.replace(/\\/g, "/");
+              image2.alt = "Property Image 2";
+
+              imageContainer.appendChild(image1);
+              imageContainer.appendChild(image2);
+
+              cardBody.appendChild(propertyName);
+              cardBody.appendChild(propertyDetails);
+              cardBody.appendChild(imageContainer);
+
+              card.appendChild(cardBody);
+
+              propertyListDiv.appendChild(card);
+            });
+
+            const propertyImages = document.querySelectorAll(".property-image");
+
+            propertyImages.forEach((image) => {
+              image.addEventListener("click", () => {
+                image.classList.toggle("clicked");
+              });
+            });
+          })
+          .catch((error) => {
+            console.error("Error retrieving properties:", error);
+          });
       });
-  });
-  
-  
-  
-  </script>
-</body>
+    </script>
+  </body>
 </html>
