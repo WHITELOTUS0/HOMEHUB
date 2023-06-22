@@ -24,6 +24,70 @@
   </div>
 
   <!-- Include the client-side JavaScript file -->
-  <script></script>
+  <script>
+   // script.js
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const propertyListDiv = document.getElementById('propertyList');
+  
+    fetch('/properties')
+      .then(response => response.json())
+      .then(properties => {
+        properties.forEach(property => {
+          const card = document.createElement('div');
+          card.classList.add('card');
+  
+          const cardBody = document.createElement('div');
+          cardBody.classList.add('card-body');
+  
+          const propertyName = document.createElement('h5');
+          propertyName.classList.add('card-title');
+          propertyName.textContent = property.propName;
+  
+          const propertyDetails = document.createElement('p');
+          propertyDetails.classList.add('card-text');
+          propertyDetails.innerHTML = `
+            <strong>Property Type:</strong> ${property.propType}<br>
+            <strong>Location:</strong> ${property.location}<br>
+            <strong>Description:</strong> ${property.DESCRIPTION}<br>
+            <strong>Bedrooms:</strong> ${property.bedrooms}<br>
+            <strong>Bathrooms:</strong> ${property.bathrooms}<br>
+            <strong>Cost:</strong> ${property.cost}<br>
+          `;
+  
+          const imageContainer = document.createElement('div');
+          imageContainer.classList.add('mb-3');
+  
+          const image1 = document.createElement('img');
+          image1.classList.add('img-thumbnail', 'mr-2');
+          image1.src = property.imagePath1.replace(/\\/g, '/');
+          image1.alt = 'Property Image 1';
+          console.log(property.imagePath1.replace(/\\/g, '/'));
+  
+          const image2 = document.createElement('img');
+          image2.classList.add('img-thumbnail');
+          image2.src = property.imagePath2.replace(/\\/g, '/');
+          image2.alt = 'Property Image 2';
+  
+          imageContainer.appendChild(image1);
+          imageContainer.appendChild(image2);
+  
+          cardBody.appendChild(propertyName);
+          cardBody.appendChild(propertyDetails);
+          cardBody.appendChild(imageContainer);
+  
+          card.appendChild(cardBody);
+  
+          propertyListDiv.appendChild(card);
+        });
+      })
+      .catch(error => {
+        console.error('Error retrieving properties:', error);
+      });
+  });
+  
+  
+  
+  </script>
 </body>
 </html>

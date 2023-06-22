@@ -1,4 +1,3 @@
-//addProperty.js
 const express = require('express');
 const db = require('./db');
 const bodyParser = require('body-parser');
@@ -10,7 +9,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'frontEnd')));
 
 const storage = multer.diskStorage({
-  destination: 'frontEnd/images/propertyUploads',
+  destination: (req, file, callback) => {
+    callback(null, 'frontEnd/images/propertyUploads');
+  },
   filename: (req, file, callback) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
     const fileExtension = file.originalname.split('.').pop();
@@ -37,8 +38,8 @@ function addProperty(req, res, next) {
       bedrooms: req.body.bedroom,
       bathrooms: req.body.bathroom,
       cost: req.body.price,
-      imagePath1: req.files['imageField1'][0].path,
-      imagePath2: req.files['imageField2'][0].path
+      imagePath1: '/images/propertyUploads/' + req.files['imageField1'][0].filename,
+      imagePath2: '/images/propertyUploads/' + req.files['imageField2'][0].filename
     };
 
     const query = 'INSERT INTO property SET ?';
