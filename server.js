@@ -6,6 +6,7 @@ const addUser = require('./addUser');
 const addProperty = require('./addProperty');
 const authUser = require('./authUser');
 const getUsers = require('./getUsers');
+const getProperties = require('./getProperty');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,6 +19,7 @@ app.post('/login', authUser);
 
 //getting from database
 app.get('/users', getUsers);
+app.get('/properties', getProperties);
 
 
 const port = 3000;
