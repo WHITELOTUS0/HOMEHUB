@@ -14,7 +14,7 @@ function checkEmailExists(email) {
 
 function addUser(req, res, next) {
   const user = {
-    Names: req.body.Names,
+    name: req.body.Names,
     password: req.body.password,
     email: req.body.email,
     telno: req.body.telno,
@@ -36,7 +36,7 @@ function addUser(req, res, next) {
         }
 
         const newUser = {
-          Names: user.Names,
+          name: user.Names,
           password: hashedPassword,
           email: user.email,
           telno: user.telno,
