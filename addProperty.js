@@ -38,6 +38,7 @@ function addProperty(req, res, next) {
       bedrooms: req.body.bedroom,
       bathrooms: req.body.bathroom,
       cost: req.body.price,
+      status:0,
       imagePath1: '/images/propertyUploads/' + req.files['imageField1'][0].filename,
       imagePath2: '/images/propertyUploads/' + req.files['imageField2'][0].filename
     };
@@ -52,6 +53,7 @@ function addProperty(req, res, next) {
       console.log('Property added successfully!');
       console.log('Result:', result);
       res.send('Property added successfully!');
+      res.redirect('/pages/upload.html');
     });
   });
 }
