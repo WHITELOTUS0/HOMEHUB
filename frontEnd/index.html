@@ -41,6 +41,21 @@
           transform: translate(-50%, -50%);
           z-index: 9999;
         }
+  
+        .view-btn,
+        .book-now-btn {
+          margin-top: 10px;
+          display: inline-block;
+          width: 20%;
+          margin-left: 20px;
+          float: right;
+        }
+
+        .image-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
       </style>
 
     </head>
@@ -79,8 +94,7 @@
           </div>
         </div>
       </nav>
-         
-      
+       
           <div class="container" style="margin-top: 5em;">
             <h4 class="text-center mb-4">Browse through our properties for the best experience</h4>
             <div id="propertyList"></div>
@@ -109,19 +123,21 @@
                     const propertyDetails = document.createElement("p");
                     propertyDetails.classList.add("card-text");
                     propertyDetails.innerHTML = `
-                    <strong>Property Type:</strong> ${property.propType}<br>
-                    <strong>Location:</strong> ${property.location}<br>
-                    <strong>Description:</strong> ${property.DESCRIPTION}<br>
+                    <strong >Property Type:</strong> ${property.propType}
+                    <strong style="margin-left:50px">Location:</strong> ${property.location}
                     <strong>Bedrooms:</strong> ${property.bedrooms}
                     <strong style="margin-left:50px">Bathrooms:</strong> ${property.bathrooms}
                     <strong style="margin-left:50px">Property Cost:</strong> ${property.cost}<br>
+                    <strong>Description:</strong> ${property.DESCRIPTION}<br>
+                   
                   `;
       
                     const imageContainer = document.createElement("div");
                     imageContainer.classList.add(
                       "mb-3",
                       "d-flex",
-                      "justify-content-between"
+                      "justify-content-between",
+                      "image-container"
                     );
       
                     const image1 = document.createElement("img");
@@ -140,11 +156,24 @@
                     cardBody.appendChild(propertyName);
                     cardBody.appendChild(propertyDetails);
                     cardBody.appendChild(imageContainer);
+
+                    const viewButton = document.createElement("button");
+                    viewButton.classList.add("btn", "btn-primary", "view-btn","mx-8");
+                    viewButton.textContent = "View";
+      
+                    const bookNowButton = document.createElement("button");
+                    bookNowButton.classList.add("btn", "btn-success", "book-now-btn");
+                    bookNowButton.textContent = "Book Now";
+      
+                    cardBody.appendChild(viewButton);
+                    cardBody.appendChild(bookNowButton);
       
                     card.appendChild(cardBody);
       
                     propertyListDiv.appendChild(card);
+                    
                   });
+                 
       
                   const propertyImages = document.querySelectorAll(".property-image");
       
@@ -159,10 +188,6 @@
                 });
             });
           </script>
-       
-       
     
 </body>
 </html>
-<!---->
-
