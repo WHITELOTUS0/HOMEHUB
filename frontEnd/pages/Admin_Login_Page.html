@@ -58,8 +58,8 @@
 </head>
 <body>
   <div class="container">
-    <h1>One Point Property Management System <br> <span style="color: rgb(51, 20, 226);">Admin Login</span> </h1>
-    <form id="loginForm">
+    <h1>Home Hub <br> <span style="color: rgb(51, 20, 226);">Admin Login</span> </h1>
+    <form id="loginForm" >
       <input type="text" id="username" placeholder="Username" required>
       <input type="password" id="password" placeholder="Password" required>
       <button type="submit">Login</button>
@@ -78,7 +78,7 @@
       // Perform validation and login logic here
       if (username === 'admin' && password === 'admin123') {
         // Successful login, redirect to the admin page
-        window.location.href = 'admin.html';
+        window.location.href = '../dashboard.html';
       } else {
         alert('Invalid username or password. Please try again.');
       }
