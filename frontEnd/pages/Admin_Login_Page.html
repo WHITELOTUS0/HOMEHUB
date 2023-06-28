@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Admin Login</title>
+  <style>
+    /* CSS styles for body */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    /* CSS styles for container */
+    .container {
+      width: 300px;
+      padding: 20px;
+      background-color: #fff;
+      margin: 100px auto;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* CSS styles for heading */
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: #333;
+    }
+
+    /* CSS styles for input fields */
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    /* CSS styles for the login button */
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* CSS styles for hover effect on the login button */
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Home Hub <br> <span style="color: rgb(51, 20, 226);">Admin Login</span> </h1>
+    <form id="loginForm" >
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    // Assuming you have a function named 'login' that handles the login logic
+    function login(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Retrieve the values of the username and password inputs
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Perform validation and login logic here
+      if (username === 'admin' && password === 'admin123') {
+        // Successful login, redirect to the admin page
+        window.location.href = '../dashboard.html';
+      } else {
+        alert('Invalid username or password. Please try again.');
+      }
+    }
+
+    // Attach the login function to the form's submit event
+    document.getElementById('loginForm').addEventListener('submit', login);
+  </script>
+</body>
+</html>
